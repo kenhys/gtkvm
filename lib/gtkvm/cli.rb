@@ -6,7 +6,7 @@ module Gtkvm
   class CLI < Thor
 
     desc "list", "Shows list of gtkvmset."
-    def list(word)
+    def list
     end
 
     desc "use GTKVMSET", "Use specific gtkvmset."
