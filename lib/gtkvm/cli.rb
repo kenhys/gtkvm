@@ -21,5 +21,9 @@ module Gtkvm
     desc "build GTKVMSET", "Build specific gtkvmset."
     def build(vmset)
     end
+
+    desc "bootstrap", "Bootstrap jhbuild."
+    def bootstrap
+    end
   end
 end
