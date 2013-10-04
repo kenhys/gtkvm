@@ -17,5 +17,9 @@ module Gtkvm
     option :template
     def create(vmset)
     end
+
+    desc "build GTKVMSET", "Build specific gtkvmset."
+    def build(vmset)
+    end
   end
 end
