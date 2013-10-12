@@ -5,9 +5,8 @@ require 'gtkvm'
 module Gtkvm
   class CLI < Thor
 
-    desc "list", "Shows list of gtkvmset."
-    def list
-    end
+    desc "list SUBCOMMAND", "List gtkvmset"
+    subcommand "list", List
 
     desc "config SUBCOMMAND", "Configuration tasks"
     subcommand "config", Config
