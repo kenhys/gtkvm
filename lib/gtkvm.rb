@@ -1,4 +1,5 @@
 require "gtkvm/version"
+require "gtkvm/const"
 require "gtkvm/cli"
 
 module Gtkvm
