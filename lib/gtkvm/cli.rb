@@ -11,6 +11,9 @@ module Gtkvm
     desc "config SUBCOMMAND", "Configuration tasks"
     subcommand "config", Config
 
+    desc "moduleset SUBCOMMAND", "Moduleset tasks"
+    subcommand "moduleset", Moduleset
+
     desc "use GTKVMSET", "Use specific gtkvmset."
     def use(vmset)
     end
