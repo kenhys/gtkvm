@@ -3,6 +3,7 @@ require "gtkvm/const"
 require "gtkvm/config"
 require "gtkvm/list"
 require "gtkvm/moduleset"
+require "gtkvm/bootstrap"
 require "gtkvm/cli"
 
 module Gtkvm
