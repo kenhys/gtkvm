@@ -1,4 +1,5 @@
 require 'thor'
+require 'colored'
 
 module Gtkvm
 
@@ -13,8 +14,10 @@ module Gtkvm
       if config['gtkvmset'].nil?
         puts "no gtkvmset in #{gtkvmset_dir}"
       else
+        arrow = "=>"
         config['gtkvmset'].each do |gtkvmset|
-          puts "#{gtkvmset} [#{gtkvmset_dir}/#{gtkvmset}]"
+          puts "gtkvm gtkvmset:"
+          printf "%3s %s [ %s/%s ]\n", arrow, gtkvmset.green, gtkvmset_dir, gtkvmset
         end
       end
     end
