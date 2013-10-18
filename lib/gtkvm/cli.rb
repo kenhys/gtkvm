@@ -35,15 +35,21 @@ module Gtkvm
         ["moduleset", "patches", "gtkset"].each do |directory|
           Dir.mkdir(directory) unless File.exist?(directory)
         end
-        jhbuild_path = "#{gtkvm_path}/jhbuild"
-        FileUtils.rm_rf(jhbuild_path, :secure=>true)
-        `git clone git://git.gnome.org/jhbuild ~/.gtkvm/jhbuild`
-        Dir.chdir(jhbuild_path) do
-          Dir.mkdir("m4")
-          Dir.mkdir("build-aux")
-          `./autogen.sh`
-          `./configure --prefix=#{gtkvm_path}`
-          `make install`
+        jhbuild_path = "#{gtkvm_path}/.jhbuild"
+        if File.exist?(jhbuild_path)
+          Dir.chdir(jhbuild_path) do
+           `git pull`
+          end
+        else
+          FileUtils.rm_rf(jhbuild_path, :secure=>true)
+          `git clone git://git.gnome.org/jhbuild #{jhbuild_path}`
+          Dir.chdir(jhbuild_path) do
+            Dir.mkdir("m4")
+            Dir.mkdir("build-aux")
+            `./autogen.sh`
+            `./configure --prefix=#{gtkvm_path}`
+            `make install`
+          end
         end
       end
     end
