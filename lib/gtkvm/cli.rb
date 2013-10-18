@@ -31,7 +31,7 @@ module Gtkvm
     def bootstrap
       gtkvm_path = File.expand_path("~/.gtkvm")
       ["moduleset", "patches", "gtkset"].each do |directory|
-        path = "#{gtkvm_path}/jhbuildrc"
+        path = "#{gtkvm_path}/#{directory}"
         Dir.mkdir(path) unless File.exist?(path)
       end
       Dir.chdir(gtkvm_path) do
