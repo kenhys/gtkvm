@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'thor'
 require 'gtkvm'
+require 'yaml'
 
 module Gtkvm
   class CLI < Thor
@@ -32,7 +33,7 @@ module Gtkvm
       gtkvm_path = File.expand_path("~/.gtkvm")
       Dir.mkdir(gtkvm_path) unless File.exist?(gtkvm_path)
       Dir.chdir(gtkvm_path) do
-        ["moduleset", "patches", "gtkset"].each do |directory|
+        ["moduleset", "patches", "gtkvmset"].each do |directory|
           Dir.mkdir(directory) unless File.exist?(directory)
         end
         jhbuild_path = "#{gtkvm_path}/.jhbuild"
@@ -50,6 +51,13 @@ module Gtkvm
             `./configure --prefix=#{gtkvm_path}`
             `make install`
           end
+        end
+        File.open("gtkvm.yml", "w+") do |file|
+          template = {
+            'gtkvmset_dir' => "#{gtkvm_path}/gtkvmset"
+          }
+          file.puts(YAML.dump(template))
+          puts(YAML.dump(template))
         end
       end
     end
