@@ -9,5 +9,9 @@ module Gtkvm
         File.expand_path("~/#{CONFIG_DIR}/#{CONFIG_FILE}")
       end
     end
+
+    def get_config_file
+      YAML.load_file(get_config_path)
+    end
   end
 end
