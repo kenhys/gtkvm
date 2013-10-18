@@ -4,6 +4,7 @@ require "gtkvm/config"
 require "gtkvm/list"
 require "gtkvm/moduleset"
 require "gtkvm/bootstrap"
+require "gtkvm/helper"
 require "gtkvm/cli"
 
 module Gtkvm
