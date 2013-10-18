@@ -24,8 +24,21 @@ module Gtkvm
     desc "create GTKVMSET", "Create recipe of gtkvmset."
     option :template
     def create(vmset)
-      config_dir = get_config_dir
-      p config_dir
+      config = get_config_file
+      vmset_path = File.join(config['gtkvmset_dir'], vmset)
+      if Dir.exist?(vmset_path)
+        puts "#{vmset} is already exists"
+      else
+        Dir.mkdir(vmset_path)
+        if config['gtkvmset'].nil?
+          config['gtkvmset'] = [vmset]
+        else
+          config['gtkvmset'] << vmset
+        end
+      end
+      File.open(get_config_path, "w+") do |file|
+        file.puts(YAML.dump(config))
+      end
     end
 
     desc "build GTKVMSET", "Build specific gtkvmset."
