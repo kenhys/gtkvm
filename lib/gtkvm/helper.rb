@@ -1,7 +1,7 @@
 module Gtkvm
   module Helper
 
-    def get_config_dir
+    def get_config_path
       config_path = `pwd`.chomp + "/#{CONFIG_FILE}"
       if File.exist?(config_path)
         config_path
