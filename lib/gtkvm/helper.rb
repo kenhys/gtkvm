@@ -7,12 +7,12 @@ module Gtkvm
       if File.exist?(config_path)
         current_dir
       else
-        File.expand_path("~/#{CONFIG_DIR}/#{CONFIG_FILE}")
+        File.expand_path("~/#{CONFIG_DIR}")
       end
     end
 
     def get_config_path
-      File.expand_path(get_config_dir, CONFIG_FILE)
+      File.join(get_config_dir, CONFIG_FILE)
     end
 
     def get_config_file
