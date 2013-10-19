@@ -1,7 +1,7 @@
 module Gtkvm
   class CLI < Thor
     desc "create GTKVMSET", "Create recipe of gtkvmset."
-    option :template
+    option :template, :required => true
     def create(vmset)
       config = get_config_file
       vmset_path = File.join(config['gtkvmset_dir'], vmset)
