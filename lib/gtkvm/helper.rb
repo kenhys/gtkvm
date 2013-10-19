@@ -30,5 +30,15 @@ module Gtkvm
         File.basename(path, ".moduleset")
       end
     end
+
+    def get_gtkvmset_dir(name)
+      config = get_config_file
+      File.join(config['gtkvmset_dir'], name)
+    end
+
+    def get_jhbuild_path
+      config = get_config_file
+      File.join(get_config_dir, "bin/jhbuild")
+    end
   end
 end
