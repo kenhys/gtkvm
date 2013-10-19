@@ -24,5 +24,11 @@ module Gtkvm
         file.puts(YAML.dump(config))
       end
     end
+
+    def get_moduleset_names
+      Dir.glob("moduleset/gtk+*.moduleset").collect do |path|
+        File.basename(path, ".moduleset")
+      end
+    end
   end
 end

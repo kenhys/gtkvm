@@ -8,7 +8,17 @@ module Gtkvm
       if Dir.exist?(vmset_path)
         puts "#{vmset} is already exists"
       else
-        Dir.mkdir(vmset_path)
+        moduleset = get_moduleset_names
+        if not moduleset.include?(options[:template])
+          printf "%s is not valid template", options[:template]
+          return
+        else
+          moduleset_path = File.join("moduleset",
+                                     options[:template] + ".moduleset")
+          dest_dir = File.join(config['gtkvmset_dir'], vmset)
+          FileUtils.mkdir_p(dest_dir)
+          FileUtils.copy(moduleset_path, dest_dir)
+        end
         if config['gtkvmset'].nil?
           config['gtkvmset'] = [vmset]
         else
