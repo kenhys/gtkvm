@@ -15,8 +15,8 @@ module Gtkvm
         puts "no gtkvmset in #{gtkvmset_dir}"
       else
         arrow = "=>"
+        puts "gtkvm gtkvmset:"
         config['gtkvmset'].each do |gtkvmset|
-          puts "gtkvm gtkvmset:"
           printf "%3s %s [ %s/%s ]\n", arrow, gtkvmset.green, gtkvmset_dir, gtkvmset
         end
       end
