@@ -8,6 +8,7 @@ require "gtkvm/bootstrap"
 require "gtkvm/clean"
 require "gtkvm/build"
 require "gtkvm/create"
+require "gtkvm/remove"
 require "gtkvm/cli"
 
 module Gtkvm

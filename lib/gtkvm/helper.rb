@@ -18,5 +18,11 @@ module Gtkvm
     def get_config_file
       YAML.load_file(get_config_path)
     end
+
+    def save_config_file(config)
+      File.open(get_config_path, "w+") do |file|
+        file.puts(YAML.dump(config))
+      end
+    end
   end
 end

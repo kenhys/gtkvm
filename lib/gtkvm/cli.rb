@@ -17,6 +17,9 @@ module Gtkvm
     desc "moduleset SUBCOMMAND", "Moduleset tasks"
     subcommand "moduleset", Moduleset
 
+    desc "remove SUBCOMMAND", "Remove tasks"
+    subcommand "remove", Remove
+
     desc "use GTKVMSET", "Use specific gtkvmset."
     def use(vmset)
     end
