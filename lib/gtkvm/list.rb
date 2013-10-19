@@ -24,6 +24,13 @@ module Gtkvm
 
     desc "moduleset", "List supported moduleset of gtkvm"
     def moduleset
+      modules = Dir.glob("moduleset/gtk+*.moduleset").collect do |moduleset|
+        File.basename(moduleset, ".moduleset")
+      end
+      puts "gtkvm modulesets:"
+      modules.sort.each do |basename|
+        printf " %s\n", basename
+      end
     end
   end
 end
