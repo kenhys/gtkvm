@@ -36,9 +36,24 @@ module Gtkvm
       File.join(config['gtkvmset_dir'], name)
     end
 
+    def get_tarball_dir
+      config = get_config_file
+      config['tarball_dir']
+    end
+
     def get_jhbuild_path
       config = get_config_file
       File.join(get_config_dir, "bin/jhbuild")
+    end
+
+    def get_file_contents(path)
+      return "" unless File.exist?(path)
+
+      content = ""
+      File.open(path, "r") do |file|
+        content = file.read
+      end
+      content
     end
   end
 end
