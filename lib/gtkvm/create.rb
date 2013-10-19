@@ -14,8 +14,8 @@ module Gtkvm
         else
           config['gtkvmset'] << vmset
         end
+        save_config_file(config)
       end
-      save_config_file(config)
     end
   end
 end
