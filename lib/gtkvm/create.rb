@@ -17,7 +17,8 @@ module Gtkvm
                                      options[:template] + ".moduleset")
           dest_dir = File.join(config['gtkvmset_dir'], vmset)
           FileUtils.mkdir_p(dest_dir)
-          FileUtils.copy(moduleset_path, dest_dir)
+          dest_path = "#{dest_dir}/vmset.moduleset"
+          FileUtils.copy(moduleset_path, dest_path)
         end
         if config['gtkvmset'].nil?
           config['gtkvmset'] = [vmset]
