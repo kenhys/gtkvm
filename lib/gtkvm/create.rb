@@ -15,9 +15,7 @@ module Gtkvm
           config['gtkvmset'] << vmset
         end
       end
-      File.open(get_config_path, "w+") do |file|
-        file.puts(YAML.dump(config))
-      end
+      save_config_file(config)
     end
   end
 end
